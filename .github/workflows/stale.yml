@@ -17,7 +17,7 @@ jobs:
     - name: Stale Branches
       uses: crs-k/stale-branches@v2.0.1
       with:
-        repo-token: '${{ secrets.GITHUB_TOKEN }}'
+        repo-token: '${{ secrets.TOKEN }}'
         days-before-stale: 120
         days-before-delete: 180
         comment-updates: false
