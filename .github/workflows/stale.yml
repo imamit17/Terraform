@@ -1,0 +1,2 @@
+- name: Stale Branches
+  uses: crs-k/stale-branches@v2.0.15
