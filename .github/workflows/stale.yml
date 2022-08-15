@@ -18,7 +18,7 @@ jobs:
       with:
         repo-token: '${{ secrets.TOKEN }}'
         days-before-stale: 120
-        days-before-delete: 180
+        days-before-delete: 40
         comment-updates: false
         max-issues: 20
         tag-committer: false
