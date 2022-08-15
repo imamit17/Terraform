@@ -4,7 +4,7 @@ name: Stale Branches
 
 on:
   schedule:
-    - cron: '5 * * * *'
+    - cron: '2 * * * *'
     
 permissions:
   issues: write
@@ -17,7 +17,7 @@ jobs:
     - name: Stale Branches
       uses: crs-k/stale-branches@v2.0.1
       with:
-        repo-token: '${{ secrets.GITHUB_TOKEN }}'
+        repo-token: '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'
         days-before-stale: 120
         days-before-delete: 180
         comment-updates: false
