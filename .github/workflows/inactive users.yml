@@ -1,5 +1,5 @@
 
-name: Stale Branches
+name: Inactive Users
 
 on:
   workflow_dispatch
