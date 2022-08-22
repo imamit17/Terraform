@@ -1,17 +1,23 @@
-name: inactive users
+
+name: Stale Branches
 
 on:
   workflow_dispatch
-  
+
 jobs:
-
-  audit_log:
+  stale_branches:
     runs-on: ubuntu-latest
-    name: Membership Audit Log
-
-    - name: Membership Audit Log Action
-      uses: svanboxel/org-audit-action@v1
+    steps:
+    - name: Analyze User Activity
+      id: analyze_user_activity
+      uses: peter-murray/inactive-users-action@v1
       with:
-        organization: 'octodemov2'
-        token: '${{ secrets.TOKEN }}'
-        samlIdentities: true
+        token: ${{ secrets.TOKEN }}
+        organization: imamit17
+        activity_days: 90
+    - name: Save User Activity Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: reports
+        path: |
+          ${{ steps.analyze_user_activity.outputs.report_csv }}
