@@ -27,21 +27,11 @@ jobs:
       uses: slackapi/slack-github-action@v1.21.0
       with:
         channel-id: 'CHANNEL_ID'
-        payload: |
-           {
-            "text": "Inactive Users List: ${{ steps.analyze_user_activity.outputs.report_csv }}",
-            "blocks": [
-              {
-                   "type": "section",
-                   "text": {
-                      "type": "mrkdwn",
-                      "text": "Completed:"
-                    }
-                  }
-                ]
-              } 
-           env:
-             SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        slack-message: "Inactive User List: ${{ steps.analyze_user_activity.outputs.report_csv }}"
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+       
+
          
       
 
