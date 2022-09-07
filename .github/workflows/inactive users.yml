@@ -21,3 +21,28 @@ jobs:
         name: reports
         path: |
           ${{ steps.analyze_user_activity.outputs.report_csv }}
+          
+    - name: Post to a Slack channel
+      id: slack
+      uses: slackapi/slack-github-action@v1.21.0
+      with:
+        channel-id: 'CHANNEL_ID'
+        payload: |
+           {
+            "text": "Inactive Users List: ${{ steps.analyze_user_activity.outputs.report_csv }}",
+            "blocks": [
+              {
+                   "type": "section",
+                   "text": {
+                      "type": "mrkdwn",
+                      "text": "Completed:"
+                    }
+                  }
+                ]
+              } 
+           env:
+             SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+         
+      
+
+
