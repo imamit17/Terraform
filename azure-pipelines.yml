@@ -7,4 +7,5 @@ steps:
 
 - script: |
     git clone https://github.com/imamit17/Terraform.git
+    ls
   displayName: 'Run a multi-line script'
